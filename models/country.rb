@@ -25,4 +25,11 @@ class Country
     @id = id.to_i
   end
 
+  def self.all()
+    sql = "SELECT * FROM countries"
+    country_data = SqlRunner.run(sql)
+    country = country_data.map { |country| Country.new(country) }
+    return country
+  end
+
 end

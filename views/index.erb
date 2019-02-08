@@ -1,0 +1,10 @@
+<h2>Bucket List Destinations</h2>
+
+  <% @countries.each do |country| %>
+
+<ul>
+  <li> <a href="/trips/<%= country.id %>"> <%= country.name %></a> </li>
+</ul>
+
+
+  <% end %>
