@@ -30,4 +30,12 @@ class City
     @id = id
   end
 
+  def self.all(id)
+    sql = "SELECT * FROM cities WHERE country_id = $1"
+    values = [id]
+    city_data = SqlRunner.run(sql, values)
+    city = city_data.map { |city| City.new(city) }
+    return city
+  end
+
 end
