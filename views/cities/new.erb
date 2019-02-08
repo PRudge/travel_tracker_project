@@ -1,0 +1,13 @@
+<h2>Add a city for <%= @country.name.capitalize %></h2>
+<form method="POST" action="/cities">
+
+    <input type="text" name="country_id" id="country_id" value="<%= @country.id%>"/>
+
+  <label for="name">City Name:</label>
+  <input type="text" name="name" id="name"/>
+
+  <label for="name">Visited Status:</label>
+  <input type="text" name="visit_status" id="visit_status"/>
+
+  <input type="submit" value="Add Country"/>
+</form>

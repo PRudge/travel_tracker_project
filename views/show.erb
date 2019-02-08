@@ -1,11 +1,12 @@
-<p>Country: <%= @country.name %></p>
-
-
+<p>Country: <%= @country.name.capitalize %></p>
 <% @cities.each do |city| %>
 
 <ul>
-<li> <%= city.name %> </li>
+  <li> <%= city.name.capitalize %> </li>
+  <li> <%= city.visit_status %> </li>
 </ul>
 
 
 <% end %>
+
+<a href="/cities/new/<%= @country.id %>">Add a city</a>

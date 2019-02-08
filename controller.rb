@@ -11,15 +11,24 @@ get '/' do
   erb(:index)
 end
 
-get '/trips/new' do
+get '/countries/new' do
   erb(:new)
 end
 
-post '/trips' do
+post '/countries' do
   Country.new(params).save
   redirect to '/'
 end
 
+get '/cities/new/:id' do
+  @country = Country.find(params['id'])
+  erb(:"cities/new")
+end
+
+post '/cities' do
+  City.new(params).save
+  redirect to '/'
+end
 
 get '/trips/:id' do
   @country = Country.find(params['id'])

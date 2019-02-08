@@ -1,13 +1,8 @@
 <h2>Bucket List Destinations</h2>
-
   <% @countries.each do |country| %>
-
-<ul>
-  <li> <a href="/trips/<%= country.id %>"> <%= country.name %></a> </li>
-</ul>
-
-
+  <ul>
+    <li> <a href="/trips/<%= country.id %>"> <%= country.name.capitalize %></a> </li>
+  </ul>
   <% end %>
 
-<a href='/trips/new'>Add New Country</a>
-   <!-- <button onclick='/trips/new'>Add a Country</button> -->
+<a href="/countries/new" class="button">Add a country</a>
