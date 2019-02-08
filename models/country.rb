@@ -32,4 +32,13 @@ class Country
     return country
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM countries
+    WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql ,values).first
+    country = Country.new(result)
+    return country
+  end
+
 end

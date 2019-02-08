@@ -12,6 +12,6 @@ end
 
 get '/trips/:id' do
   @country = Country.find(params['id'])
-  @cities = City.find(params['id'])
+  # @cities = City.find(params['id'])
   erb(:show)
 end
