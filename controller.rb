@@ -27,7 +27,9 @@ end
 
 post '/cities' do
   City.new(params).save
-  redirect to '/'
+  # redirect to '/'
+  redirect to "/trips/#{params['country_id']}"
+
 end
 
 get '/trips/:id' do
