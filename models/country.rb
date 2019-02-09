@@ -26,20 +26,19 @@ class Country
     @id = id.to_i
   end
 
-  # def update()
-  #   sql = "UPDATE countries
-  #   SET
-  #   (
-  #     name
-  #   ) =
-  #   (
-  #     $1
-  #   )
-  #   WHERE id = $2"
-  #   values = [@name]
-  #   SqlRunner.run(sql, values)
-  # end
-
+  def update()
+    sql = "UPDATE countries
+    SET
+    (
+      name
+    ) =
+    (
+      $1
+    )
+    WHERE id = $2"
+    values = [@name]
+    SqlRunner.run(sql, values)
+  end
 
   def self.all()
     sql = "SELECT * FROM countries"
