@@ -30,12 +30,46 @@ class City
     @id = id
   end
 
-  def self.all(id)
+
+
+  def update()
+    sql = "UPDATE cities
+    SET
+    (
+      country_id,
+      name,
+      visit_status
+    ) =
+    (
+      $1, $2, $3
+    )
+    WHERE id = $4"
+    values = [@country_id, @name, @visit_status, @id]
+    SqlRunner.run(sql, values)
+  end
+
+  def self.all()
     sql = "SELECT * FROM cities WHERE country_id = $1"
     values = [id]
     city_data = SqlRunner.run(sql, values)
     city = city_data.map { |city| City.new(city) }
     return city
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM cities
+    WHERE id = $1"
+    values = [id]
+    result = SqlRunner.run(sql ,values).first
+    city = City.new(result)
+    return city
+  end
+
+  def self.delete(id)
+    sql = "DELETE FROM cities
+    WHERE id = $1"
+    values = [id]
+    SqlRunner.run( sql, values )
   end
 
 end

@@ -1,0 +1,17 @@
+<h2>Edit <%= @city.name %></h2>
+
+<form method="POST" action="/cities/<%= @city.id %>">
+
+  <input type="hidden" name="country_id" id="country_id" value= "<%= @city.country_id%>"/>
+
+  <label for="name">City Name:</label>
+  <input type="text" name="name" id="name" value="<%= @city.name %>"/>
+
+  <input type="radio" id="visited" name="visit_status" value="visited" checked>
+  <label for="visited">Visited</label>
+
+  <input type="radio" id="to_visit" name="visit_status" value="to visit">
+  <label for="to_visit">To Visit</label>
+
+  <input type="submit" value="Update City"/>
+</form>

@@ -2,8 +2,10 @@
 <% @cities.each do |city| %>
 
 <ul>
-  <li> <%= city.name.capitalize %> </li>
-  <li> <%= city.visit_status %> </li>
+  <li> <%= city.name.capitalize %>:<%= city.visit_status %> - <a href="/cities/<%= city.id %>/edit">Edit</a>
+    <form action="/cities/<%= city.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
+  </li>
+
 </ul>
 
 <% end %>
