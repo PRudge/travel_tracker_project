@@ -24,3 +24,8 @@ get '/countries/:id' do
   @cities = Country.cities(params['id'])
   erb(:"countries/show")
 end
+
+post '/countries/:id/delete' do #delete a country and delete cascade all the cities
+  Country.delete(params['id'])
+  redirect to "/countries"
+end

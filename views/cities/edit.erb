@@ -7,11 +7,17 @@
   <label for="name">City Name:</label>
   <input type="text" name="name" id="name" value="<%= @city.name %>"/>
 
+  <% if @city.visit_status == "visited" %>
   <input type="radio" id="visited" name="visit_status" value="visited" checked>
-  <label for="visited">Visited</label>
-
-  <input type="radio" id="to_visit" name="visit_status" value="to visit">
-  <label for="to_visit">To Visit</label>
+    <label for="visited">Visited</label>
+    <input type="radio" id="to_visit" name="visit_status" value="to visit">
+    <label for="to_visit">To Visit</label>
+  <% else %>
+  <input type="radio" id="visited" name="visit_status" value="visited">
+    <label for="visited">Visited</label>
+    <input type="radio" id="to_visit" name="visit_status" value="to visit" checked>
+    <label for="to_visit">To Visit</label>
+  <% end %>
 
   <input type="submit" value="Update City"/>
 </form>

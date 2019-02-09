@@ -2,7 +2,8 @@ require_relative('../db/sql_runner')
 
 class Country
 
-  attr_reader :id, :name
+  attr_accessor :name
+  attr_reader :id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
@@ -24,6 +25,21 @@ class Country
     id = result.first["id"]
     @id = id.to_i
   end
+
+  # def update()
+  #   sql = "UPDATE countries
+  #   SET
+  #   (
+  #     name
+  #   ) =
+  #   (
+  #     $1
+  #   )
+  #   WHERE id = $2"
+  #   values = [@name]
+  #   SqlRunner.run(sql, values)
+  # end
+
 
   def self.all()
     sql = "SELECT * FROM countries"
@@ -49,5 +65,14 @@ class Country
     city = city_data.map { |city| City.new(city) }
     return city
   end
+
+  def self.delete(id)
+    sql = "DELETE FROM countries
+    WHERE id = $1"
+    values = [id]
+    SqlRunner.run( sql, values )
+  end
+
+
 
 end
