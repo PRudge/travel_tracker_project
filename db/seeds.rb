@@ -46,19 +46,19 @@ city6.save()
 sight1 = Sight.new({
   'name' => 'George Square',
   'city_id' => city1.id,
-  'photo_url' => '/' })
+  'comments' => 'Great spot for lunch' })
 sight2 = Sight.new({
   'name' => 'Stirling Library',
   'city_id' => city1.id,
-  'photo_url' => '/' })
+  'comments' => 'Worth another look' })
 sight3 = Sight.new({
   'name' => 'Edinburgh Castle',
   'city_id' => city2.id,
-  'photo_url' => '/' })
+  'comments' => 'I have been told that this is worth a look' })
 sight4 = Sight.new({
   'name' => 'Edinburgh Castle',
   'city_id' => city2.id,
-  'photo_url' => '/' })
+  'comments' => '/' })
 
   sight1.save()
   sight2.save()

@@ -22,3 +22,15 @@ get '/sights/:id' do #display sights for a city/country
   @sights = City.sights(params['id'])
   erb(:"sights/show")
 end
+
+get '/sights/:id/edit' do #edit sight info
+  @sight = Sight.find(params['id'])
+  erb(:"sights/edit")
+end
+
+post '/sights/:id' do #create a new Sight object and update sights db
+  sight = Sight.new(params)
+  sight.update
+  # redirect to "/"
+  redirect to "/sights/#{params['city_id']}"
+end

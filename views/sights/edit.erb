@@ -2,22 +2,15 @@
 
 <form method="POST" action="/sights/<%= @sight.id %>">
 
-  <input type="hidden" name="country_id" id="country_id" value= "<%= @city.country_id%>"/>
+  <input type="hidden" name="city_id" id="city_id" value= "<%= @sight.city_id%>"/>
 
-  <label for="name">City Name:</label>
-  <input type="text" name="name" id="name" value="<%= @city.name %>"/>
+  <label for="name">Sight Name:</label>
+  <input type="text" name="name" id="name" value="<%= @sight.name %>"/>
+  <li><label for="comments">Comments:</label>
+  <textarea name="comments" id = "comments" class="field-long field-textarea" name = "<%= @sight.comments%>">
 
-  <% if @city.visit_status.to_i == 0 %>
-  <input type="radio" id="visited" name="visit_status" value=0 checked>
-    <label for="visited">Visited</label>
-    <input type="radio" id="to_visit" name="visit_status" value=1>
-    <label for="to_visit">Still To See</label>
-  <% else %>
-  <input type="radio" id="visited" name="visit_status" value=0>
-    <label for="visited">Visited</label>
-    <input type="radio" id="to_visit" name="visit_status" value=1 checked>
-    <label for="to_visit">Still To See</label>
-  <% end %>
+  </textarea></li>
 
-  <input type="submit" value="Update City Details"/>
+
+  <input type="submit" value="Update Sight Details"/>
 </form>

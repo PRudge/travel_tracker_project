@@ -18,5 +18,5 @@ CREATE TABLE sights (
   id SERIAL8 primary key,
   city_id INT8 REFERENCES cities(id) ON DELETE CASCADE,
   name VARCHAR(255),
-  photo_url VARCHAR(255)
+  comments VARCHAR(255)
 );

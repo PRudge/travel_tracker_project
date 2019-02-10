@@ -2,14 +2,14 @@ require_relative('../db/sql_runner')
 
 class Sight
 
-  attr_accessor :city_id, :name, :photo_url
+  attr_accessor :city_id, :name, :comments
   attr_reader :id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @city_id = options['city_id'].to_i
     @name = options['name']
-    @photo_url = options['photo_url']
+    @comments = options['comments']
   end
 
   def save()
@@ -17,14 +17,14 @@ class Sight
     (
       city_id,
       name,
-      photo_url
+      comments
     )
     VALUES
     (
       $1, $2, $3
     )
     RETURNING id"
-    values = [@city_id, @name, @photo_url]
+    values = [@city_id, @name, @comments]
     result = SqlRunner.run(sql, values)
     id = result.first['id']
     @id = id
@@ -36,13 +36,13 @@ class Sight
     (
       city_id,
       name,
-      photo_url
+      comments
     ) =
     (
       $1, $2, $3
     )
     WHERE id = $4"
-    values = [@city_id, @name, @photo_url, @id]
+    values = [@city_id, @name, @comments, @id]
     SqlRunner.run(sql, values)
   end
 
