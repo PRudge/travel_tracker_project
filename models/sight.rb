@@ -7,7 +7,7 @@ class Sight
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
-    @city_id = options['city5_id'].to_i
+    @city_id = options['city_id'].to_i
     @name = options['name']
     @photo_url = options['photo_url']
   end

@@ -1,3 +1,4 @@
+require_relative('../models/sight')
 require_relative('../models/city')
 require_relative('../models/country')
 
