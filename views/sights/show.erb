@@ -1,3 +1,11 @@
+<h6><a href='/countries'>all countries</a><<
+  <% if @city.visit_status == 0 %>
+    <a href ='/cities/<%= @country.id %>/view'>back to <%= @country.name %> </a>
+  <% else %>
+  <a href ='/cities/<%= @country.id %>/tosee'>back to <%= @country.name %> </a>
+  <% end %>
+</h6>
+
 <h2>The Sights of <%= @city.format_name %>, <%= @country.name %></h2>
     <% @sights.each do |sight| %>
       <ul>
