@@ -24,6 +24,7 @@ class Country
     result = SqlRunner.run(sql, values)
     id = result.first["id"]
     @id = id.to_i
+    return @id
   end
 
   def update()
@@ -45,6 +46,15 @@ class Country
     sql = "SELECT * FROM countries
     WHERE id = $1"
     values = [id]
+    result = SqlRunner.run(sql ,values).first
+    country = Country.new(result)
+    return country
+  end
+
+  def self.find_by_name(name)
+    sql = "SELECT * FROM countries
+    WHERE name like $1"
+    values = [name]
     result = SqlRunner.run(sql ,values).first
     country = Country.new(result)
     return country

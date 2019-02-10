@@ -16,8 +16,10 @@ end
 
 
 post '/countries' do #input a new country
-  Country.new(params).save
-  redirect to '/countries'
+  id = Country.new(params).save
+
+  redirect to "/cities/new/#{id}"
+  # redirect to '/countries'
 end
 
 

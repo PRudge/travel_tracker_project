@@ -1,8 +1,10 @@
 <p>Country: <%= @country.name.capitalize %></p>
 
 <% if @visit_status == 0 %>
-  <a href="/cities/<%= @country.id %>/tosee" class="button">Show Still to See</a>
+    <h2>Visited Cities</h2>
+    <a href="/cities/<%= @country.id %>/tosee" class="button">Show Still to See</a>
 <% else %>
+     <h2>Cities Still to See</h2>
   <a href="/cities/<%= @country.id %>/view" class="button">Show Visited</a>
 <% end %>
 
