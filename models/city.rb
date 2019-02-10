@@ -55,15 +55,15 @@ class City
     sql = "SELECT * FROM cities WHERE country_id = $1"
     values = [id]
     city_data = SqlRunner.run(sql, values)
-    city = city_data.map { |city| City.new(city) }
-    return city
+    cities = city_data.map { |city| City.new(city) }
+    return cities
   end
 
   def self.find(id)
     sql = "SELECT * FROM cities
     WHERE id = $1"
     values = [id]
-    result = SqlRunner.run(sql ,values).first
+    result = SqlRunner.run(sql,values).first
     city = City.new(result)
     return city
   end

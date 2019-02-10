@@ -61,8 +61,8 @@ class Country
     WHERE country_id = $1 ORDER BY name"
     values = [id]
     city_data = SqlRunner.run(sql, values)
-    city = city_data.map { |city| City.new(city) }
-    return city
+    cities = city_data.map {|city| City.new(city) }
+    return cities
   end
 
   def self.visited(visit_status)
