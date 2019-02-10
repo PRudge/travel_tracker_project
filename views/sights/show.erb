@@ -1,8 +1,10 @@
 <h2>The Sights of <%= @city.format_name %>, <%= @country.name %></h2>
     <% @sights.each do |sight| %>
       <ul>
-        <li>  <%= sight.format_name %></li>
+        <li><%= sight.format_name %></li>
+          <li>Comments:<%= sight.comments %></li>
         <li><a href="/sights/<%= sight.id %>/edit">Edit</a>
+
         <form action="/sights/<%= sight.id %>/delete" method="POST"><input type="submit" value="Delete"></form></li>
       </ul>
   <% end %>
