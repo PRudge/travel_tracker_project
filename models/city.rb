@@ -46,6 +46,11 @@ class City
     SqlRunner.run(sql, values)
   end
 
+  def format_name()
+    formatted_name = @name.split.map(&:capitalize).join(' ')
+    return formatted_name
+  end
+
   def self.all()
     sql = "SELECT * FROM cities WHERE country_id = $1"
     values = [id]

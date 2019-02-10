@@ -6,7 +6,11 @@ margin: 0;
 
 
 body {
-
+  background: url(images/camera-world.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 a {
@@ -163,3 +167,41 @@ ul li ul li {
   text-align: left;
   margin: 10px;
 }
+
+nav {
+  font-size: 20px;
+  width: 100%;
+  background-color: #0b98de;
+  overflow: hidden;
+}
+nav a {
+  display: block;
+  float: left;
+  font-size: 20px;
+  color: white;
+  padding-top: 20px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  text-decoration: none;
+}
+
+
+}
+nav a:hover {
+  background-color: #17b0cf;
+}
+  #logo {
+
+ /*font*/
+  font-family: 'Hind', sans-serif;
+  font-size: 30px;
+  letter-spacing: -2px;
+  text-shadow: 1px 1px 2px #c4c4c4;
+/*box*/
+  padding-left: 20px;
+  padding-right: 40px;
+  margin-right: 10px;
+  margin-top: -20px;
+
+  }

@@ -35,6 +35,11 @@ class Country
     SqlRunner.run(sql, values)
   end
 
+  def format_name()
+    formatted_name = @name.split.map(&:capitalize).join(' ')
+    return formatted_name
+  end
+
   def self.all()
     sql = "SELECT * FROM countries ORDER by name"
     country_data = SqlRunner.run(sql)
