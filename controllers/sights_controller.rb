@@ -34,3 +34,9 @@ post '/sights/:id' do #create a new Sight object and update sights db
   # redirect to "/"
   redirect to "/sights/#{params['city_id']}"
 end
+
+post '/sights/:id/delete' do #delete a sight from a city
+  @sight = Sight.find(params['id'])
+  Sight.delete(params['id'])
+  redirect to "/sights/#{@sight.city_id}"
+end
