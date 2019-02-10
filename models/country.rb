@@ -59,6 +59,15 @@ class Country
     return city
   end
 
+  def self.visited(visit_status)
+    sql = "SELECT FROM cities
+    WHERE visit_status = $1"
+    values = [visit_status]
+    city_data = SqlRunner.run(sql, values)
+    city = city_data.map { |city| City.new(city) }
+    return city
+  end
+
   def self.delete(id)
     sql = "DELETE FROM countries
     WHERE id = $1"

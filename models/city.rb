@@ -9,7 +9,7 @@ class City
     @id = options['id'].to_i if options['id']
     @country_id = options['country_id'].to_i
     @name = options['name']
-    @visit_status = options['visit_status']
+    @visit_status = options['visit_status'].to_i
   end
 
   def save()
@@ -29,8 +29,6 @@ class City
     id = result.first['id']
     @id = id
   end
-
-
 
   def update()
     sql = "UPDATE cities
@@ -70,6 +68,16 @@ class City
     WHERE id = $1"
     values = [id]
     SqlRunner.run( sql, values )
+  end
+
+  #Extension
+  def self.visited(visit_status)
+    sql = "SELECT FROM cities
+    WHERE visit_status = $1"
+    values = [visit_status]
+    city_data = SqlRunner.run(sql, values)
+    cities = city_data.map { |city| City.new(city) }
+    return cities
   end
 
 end

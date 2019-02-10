@@ -8,22 +8,18 @@ also_reload('../models/*')
 get '/countries' do #show all the countries (with links to saved cities)
     @countries = Country.all
   erb(:"countries/index")
-end
+end#
 
 get '/countries/new' do #form for a new country
   erb(:"countries/new")
 end
+
 
 post '/countries' do #input a new country
   Country.new(params).save
   redirect to '/countries'
 end
 
-get '/countries/:id' do #display countries with related cities
-  @country = Country.find(params['id'])
-  @cities = Country.cities(params['id'])
-  erb(:"countries/show")
-end
 
 get '/countries/:id/edit' do #edit city info
   @country = Country.find(params['id'])
