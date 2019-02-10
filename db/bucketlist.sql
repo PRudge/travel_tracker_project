@@ -1,3 +1,4 @@
+DROP TABLE sights;
 DROP TABLE cities;
 DROP TABLE countries;
 
@@ -11,4 +12,11 @@ CREATE TABLE cities (
   country_id INT8 REFERENCES countries(id) ON DELETE CASCADE,
   name VARCHAR(255),
   visit_status INT8
+);
+
+CREATE TABLE sights (
+  id SERIAL8 primary key,
+  city_id INT8 REFERENCES cities(id) ON DELETE CASCADE,
+  name VARCHAR(255),
+  photo_url VARCHAR(255)
 );

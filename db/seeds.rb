@@ -41,3 +41,25 @@ city3.save()
 city4.save()
 city5.save()
 city6.save()
+
+sight1 = Sight.new({
+  'name' => 'George Square',
+  'city_id' => city1.id,
+  'photo_url' => '/' })
+sight2 = Sight.new({
+  'name' => 'Stirling Library',
+  'city_id' => city1.id,
+  'photo_url' => '/' })
+sight3 = Sight.new({
+  'name' => 'Edinburgh Castle',
+  'city_id' => city2.id,
+  'photo_url' => '/' })
+sight4 = Sight.new({
+  'name' => 'Edinburgh Castle',
+  'city_id' => city2.id,
+  'photo_url' => '/' })
+
+  sight1.save()
+  sight2.save()
+  sight3.save()
+  sight4.save()
