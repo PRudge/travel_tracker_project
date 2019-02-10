@@ -11,7 +11,7 @@ end
 
 post '/cities' do #add a new city (to a specific country)
   City.new(params).save
-  redirect to "/cities/#{params['country_id']}"
+  redirect to "/cities/#{params['country_id']}/view"
 end
 
 get '/cities/:id/view' do #display cities for a country

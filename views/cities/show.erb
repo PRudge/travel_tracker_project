@@ -1,20 +1,26 @@
 <p>Country: <%= @country.name.capitalize %></p>
-<a href="/cities/<%= @country.id %>/tosee" class="button">Show still to see</a>
+
+<% if @visit_status == 0 %>
+  <a href="/cities/<%= @country.id %>/tosee" class="button">Show Still to See</a>
+<% else %>
+  <a href="/cities/<%= @country.id %>/view" class="button">Show Visited</a>
+<% end %>
+
 
 <% @cities.each do |city| %>
-<% if city.visit_status %>
-       <% status = 'visited' %>
-       <% else %>
-       <% status = 'still to see' %>
-       <% end %>
+  <% if city.visit_status == 0 %>
+    <% status = 'visited' %>
+  <% else %>
+    <% status = 'still to see' %>
+  <% end %>
 
-<% if city.visit_status == @visit_status %>
-<ul>
-  <li> <%= city.name.capitalize %> : <%= status %> - <a href="/cities/<%= city.id %>/edit">Edit</a>
-    <form action="/cities/<%= city.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
-  </li>
+  <% if city.visit_status == @visit_status %>
+    <ul>
+      <li> <%= city.name.capitalize %> : <%= city.visit_status %> - <a href="/cities/<%= city.id %>/edit">Edit</a>
+        <form action="/cities/<%= city.id %>/delete" method="POST"><input type="submit" value="Delete"></form>
+      </li>
 
-</ul>
+    </ul>
   <% end %>
 <% end %>
 
