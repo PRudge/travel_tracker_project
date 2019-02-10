@@ -60,6 +60,15 @@ class City
     return country
   end
 
+  def self.sights(id)
+    sql = "SELECT * FROM sights
+    WHERE city_id = $1 ORDER BY name"
+    values = [id]
+    sight_data = SqlRunner.run(sql, values)
+    sights = sight_data.map {|sight| Sight.new(sight) }
+    return sights
+  end
+
   def self.all()
     sql = "SELECT * FROM cities WHERE country_id = $1"
     values = [id]
