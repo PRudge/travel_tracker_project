@@ -51,6 +51,15 @@ class City
     return formatted_name
   end
 
+  def country_name
+    sql = "SELECT * FROM countries
+    WHERE id = $1"
+    values = [@customer_id]
+    result = SqlRunner.run(sql,values).first
+    country = Country.new(result)
+    return country
+  end
+
   def self.all()
     sql = "SELECT * FROM cities WHERE country_id = $1"
     values = [id]
@@ -73,16 +82,6 @@ class City
     WHERE id = $1"
     values = [id]
     SqlRunner.run( sql, values )
-  end
-
-  #Extension
-  def self.visited(visit_status)
-    sql = "SELECT FROM cities
-    WHERE visit_status = $1"
-    values = [visit_status]
-    city_data = SqlRunner.run(sql, values)
-    cities = city_data.map { |city| City.new(city) }
-    return cities
   end
 
 end
