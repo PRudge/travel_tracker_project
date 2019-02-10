@@ -1,0 +1,165 @@
+*{
+border: 0;
+padding: 0;
+margin: 0;
+}
+
+
+body {
+
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Web layout */
+#wrapper{
+  display: grid;
+  /* grid-template-rows: 6fr .75fr 8fr .75fr; */
+  /* grid-template-columns: 2fr  5fr  2fr; */
+  grid-template-columns: 2fr  5fr  2fr;
+  grid-template-rows: auto auto auto;
+
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: 0 0 15px 15px rgba(200,200,200,.14);
+  /* position: relative */
+}
+
+#logo {
+text-align: center;
+padding-top: 20px;
+padding-bottom: 1px;
+}
+
+header{
+  grid-area: 1 / 1 / 2 / 4;
+}
+
+main{
+    grid-area: 3 / 2 / 4 / 3;
+    background-color: #2cacb1;
+    min-height: 250px;
+}
+.right-space{
+    grid-area: 3 / 1 / 4 / 2;
+    background-color: lightgray;
+}
+
+.left-space{
+    grid-area: 3 / 3 / 4 / 4;
+    background-color: lightgray;
+}
+
+footer{
+    grid-area: 4 / 1 / 5 / 4;
+    background-color: #f0ab1e;
+    padding: 10px;
+}
+
+/* Horizontal menu layout */
+nav {
+  grid-area: 2 / 1 / 3 / 4;
+  font-family: futura;
+  font-size: 15px;
+  list-style: none;
+  font-weight: bold;
+
+  text-align: center;
+  background: #f16025;
+  color: #888;
+  display: block;
+  width: 100%;
+  margin: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+ul {
+  background: #f16025;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+li {
+    color: #fff;
+    background: #f16025;
+    display: block;
+    float: left;
+    padding: 1rem;
+    position: relative;
+    text-decoration: none;
+  transition-duration: 0.5s;
+}
+
+li a {
+  color: #fff;
+}
+
+li:hover,
+li:focus-within {
+    background: #2cacb1;
+    cursor: pointer;
+}
+
+li:focus-within a {
+  outline: none;
+}
+
+ul li ul {
+    background: lightblue;
+    visibility: hidden;
+  opacity: 0;
+  min-width: 5rem;
+    position: absolute;
+  transition: all 0.5s ease;
+  margin-top: 1rem;
+    left: 0;
+  display: none;
+}
+
+ul li:hover > ul,
+ul li:focus-within > ul,
+ul li ul:hover,
+ul li ul:focus {
+   visibility: visible;
+   opacity: 1;
+   display: block;
+}
+
+ul li ul li {
+    clear: both;
+}
+
+.vcontainer {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+.hcontainer {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.content {
+  display: inline-block;
+  border: #f16025 2px solid;
+  /* border: #000 10px solid; */
+  text-align: center;
+  margin: 10px;
+}
+
+#rules-wrapper {
+  display: inline-block;
+  font-family: fantasy;
+  font-size: 15px;
+  font-weight: bolder;
+  text-align: left;
+  margin: 10px;
+}

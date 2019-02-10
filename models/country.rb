@@ -36,7 +36,7 @@ class Country
   end
 
   def self.all()
-    sql = "SELECT * FROM countries"
+    sql = "SELECT * FROM countries ORDER by name"
     country_data = SqlRunner.run(sql)
     country = country_data.map { |country| Country.new(country) }
     return country
@@ -51,18 +51,9 @@ class Country
     return country
   end
 
-  def self.find_by_name(name)
-    sql = "SELECT * FROM countries
-    WHERE name like $1"
-    values = [name]
-    result = SqlRunner.run(sql ,values).first
-    country = Country.new(result)
-    return country
-  end
-
   def self.cities(id)
     sql = "SELECT * FROM cities
-    WHERE country_id = $1"
+    WHERE country_id = $1 ORDER BY name"
     values = [id]
     city_data = SqlRunner.run(sql, values)
     city = city_data.map { |city| City.new(city) }
