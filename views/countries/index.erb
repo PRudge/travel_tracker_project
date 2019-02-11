@@ -1,9 +1,9 @@
-<h2>Bucket List Destinations</h2>
+<h2>Edit/Add Trips</h2>
   <% @countries.each do |country| %>
   <ul>
     <li> <a href="/cities/<%= country.id %>/view"> <%= country.format_name %></a> -
        <button><a href="/countries/<%= country.id %>/edit">Edit</a></button>
-       
+
     </li>
   </ul>
   <% end %>
