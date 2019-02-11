@@ -9,7 +9,27 @@ also_reload('../models/*')
 get '/countries' do #show all the countries (with links to saved cities)
     @countries = Country.all
   erb(:"countries/index")
-end#
+end
+
+get '/countries/visited' do #show all the countries (with links to saved cities)
+  @cities_visited = City.visited()
+  @sights = Sight.all()
+  erb(:"countries/index1")
+end
+
+get '/countries/tosee' do #show all the countries (with links to saved cities)
+  @cities_not_visited = City.not_visited
+  @sights = Sight.all()
+  erb(:"countries/index2")
+end
+
+
+get '/countries/all' do #show all the countries (with links to saved cities)
+  @cities = City.all()
+  @sights = Sight.all()
+  erb(:"countries/index3")
+end
+
 
 get '/countries/new' do #form for a new country
   erb(:"countries/new")

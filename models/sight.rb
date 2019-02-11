@@ -52,9 +52,8 @@ class Sight
   end
 
   def self.all()
-    sql = "SELECT * FROM sights WHERE id = $1"
-    values = [id]
-    sight_data = SqlRunner.run(sql, values)
+    sql = "SELECT * FROM sights"
+    sight_data = SqlRunner.run(sql)
     sights = sight_data.map { |sight| Sight.new(sight) }
     return sights
   end

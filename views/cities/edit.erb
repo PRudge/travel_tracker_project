@@ -1,6 +1,6 @@
 <h6><a href='/countries'>all countries</a><<
   <% if @city.visit_status == 0 %>
-    <a href ='/cities/<%= @city.country_id %>/view'>back</a>
+    <a href ='/cities/<%= @city.country_id %>/view'>back to <%= @city.country.name %></a>
   <% else %>
     <a href ='/cities/<%= @city.country_id %>/tosee'>back to <%= @city.country.name %></a>
   <% end %>

@@ -1,0 +1,9 @@
+<%prev = 0%>
+<h2>Places still to see<h2>
+<%@cities_not_visited.each do |city|%>
+  <%if city.country_id != prev%>
+    <h2><%=city.country.name%></h2>
+    <%prev = city.country_id %>
+  <%end%>
+  <h3><%=city.name%></h3>
+<%end%>

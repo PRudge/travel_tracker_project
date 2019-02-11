@@ -70,11 +70,10 @@ class City
   end
 
   def self.all()
-    sql = "SELECT * FROM cities WHERE country_id = $1"
-    values = [id]
-    city_data = SqlRunner.run(sql, values)
-    cities = city_data.map { |city| City.new(city) }
-    return cities
+    sql = "SELECT * FROM cities"
+    city_data = SqlRunner.run(sql)
+    city = city_data.map { |city| City.new(city) }
+    return city
   end
 
   def self.find(id)
@@ -83,6 +82,20 @@ class City
     values = [id]
     result = SqlRunner.run(sql,values).first
     city = City.new(result)
+    return city
+  end
+
+  def self.visited()
+    sql = "SELECT * FROM cities WHERE visit_status=0 ORDER BY country_id"
+    city_data = SqlRunner.run(sql)
+    city = city_data.map { |city| City.new(city) }
+    return city
+  end
+
+  def self.not_visited()
+    sql = "SELECT * FROM cities WHERE visit_status=1 ORDER BY country_id"
+    city_data = SqlRunner.run(sql)
+    city = city_data.map { |city| City.new(city) }
     return city
   end
 
