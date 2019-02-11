@@ -1,9 +1,0 @@
-<%prev = 0%>
-<h2>Trips Taken</h2>
-<%@cities_visited.each do |city|%>
-  <%if city.country_id != prev%>
-    <h2><%=city.country.name%></h2>
-    <%prev = city.country_id %>
-  <%end%>
-  <h3><%=city.name%></h3>
-<%end%>

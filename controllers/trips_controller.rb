@@ -7,19 +7,22 @@ also_reload('../models/*')
 
 
 get '/trips/visited' do #show all the countries (with links to saved cities)
-  @cities_visited = City.visited()
+  @title = "Trips Taken"
+  @cities = City.visited()
   @sights = Sight.all()
-  erb(:"trips/index1")
+  erb(:"trips/index")
 end
 
 get '/trips/tosee' do #show all the countries (with links to saved cities)
-  @cities_not_visited = City.not_visited
+  @title = "Trips Planned"
+  @cities = City.not_visited()
   @sights = Sight.all()
-  erb(:"trips/index2")
+  erb(:"trips/index")
 end
 
 get '/trips/all' do #show all the countries (with links to saved cities)
+  @title = "All My Trips"
   @cities = City.all()
   @sights = Sight.all()
-  erb(:"trips/index3")
+  erb(:"trips/index")
 end
