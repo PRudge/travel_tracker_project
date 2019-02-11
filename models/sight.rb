@@ -52,7 +52,7 @@ class Sight
   end
 
   def self.all()
-    sql = "SELECT * FROM sights"
+    sql = "SELECT * FROM sights ORDER BY name"
     sight_data = SqlRunner.run(sql)
     sights = sight_data.map { |sight| Sight.new(sight) }
     return sights

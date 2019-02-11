@@ -1,4 +1,4 @@
-
+<a href="/countries" class="button">Edit/Add Trips</a>
 <%prev = 0%>
 <h2><%@title%><h2>
 <%@cities.each do |city|%>
@@ -8,13 +8,14 @@
     <%prev = city.country_id %>
   <%end%>
   <h3><%=city.name%></h3>
-  <%if @sights.length != 0%>
-    <h4>Sights</h4>
-  <%end%>
+
 
   <%@sights.each do |sight|%>
+
     <%if sight.city_id == city.id%>
+
       <h5><%=sight.name%></h5>
+
     <%end%>
 
   <%end%>
