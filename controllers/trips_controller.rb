@@ -18,7 +18,6 @@ get '/trips/tosee' do #show all the countries (with links to saved cities)
   erb(:"trips/index2")
 end
 
-
 get '/trips/all' do #show all the countries (with links to saved cities)
   @cities = City.all()
   @sights = Sight.all()

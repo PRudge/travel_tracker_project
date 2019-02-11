@@ -41,6 +41,13 @@ end
 
 post '/cities/:id/delete' do #delete a city from a country
   @city = City.find(params['id'])
+  keep = @city.country_id
   City.delete(params['id'])
-  redirect to "/cities/#{@city.country_id}/view"
+  still_cities = Country.cities(keep)
+  if still_cities.length != 0
+    redirect to "/cities/#{keep}/view"
+  else
+   Country.delete(keep)
+   redirect to "/countries"
+ end
 end

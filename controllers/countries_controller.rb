@@ -11,38 +11,14 @@ get '/countries' do #show all the countries (with links to saved cities)
   erb(:"countries/index")
 end
 
-get '/countries/visited' do #show all the countries (with links to saved cities)
-  @cities_visited = City.visited()
-  @sights = Sight.all()
-  erb(:"countries/index1")
-end
-
-get '/countries/tosee' do #show all the countries (with links to saved cities)
-  @cities_not_visited = City.not_visited
-  @sights = Sight.all()
-  erb(:"countries/index2")
-end
-
-
-get '/countries/all' do #show all the countries (with links to saved cities)
-  @cities = City.all()
-  @sights = Sight.all()
-  erb(:"countries/index3")
-end
-
-
 get '/countries/new' do #form for a new country
   erb(:"countries/new")
 end
 
-
 post '/countries' do #input a new country
   id = Country.new(params).save
-
   redirect to "/cities/new/#{id}"
-  # redirect to '/countries'
 end
-
 
 get '/countries/:id/edit' do #edit city info
   @country = Country.find(params['id'])

@@ -89,7 +89,4 @@ class Country
     values = [id]
     SqlRunner.run( sql, values )
   end
-
-
-
 end
