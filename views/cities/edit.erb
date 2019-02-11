@@ -1,3 +1,11 @@
+<h6><a href='/countries'>all countries</a><<
+  <% if @city.visit_status == 0 %>
+    <a href ='/cities/<%= @city.country_id %>/view'>back</a>
+  <% else %>
+    <a href ='/cities/<%= @city.country_id %>/tosee'>back to <%= @city.country.name %></a>
+  <% end %>
+</h6>
+
 <h2>Edit <%= @city.name %></h2>
 
 <form method="POST" action="/cities/<%= @city.id %>">

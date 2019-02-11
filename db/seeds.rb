@@ -1,6 +1,7 @@
 require_relative('../models/sight')
 require_relative('../models/city')
 require_relative('../models/country')
+require('pry')
 
 country1 = Country.new({'name' => 'Scotland'})
 country2 = Country.new({'name' => 'Thailand'})
@@ -64,3 +65,6 @@ sight4 = Sight.new({
   sight2.save()
   sight3.save()
   sight4.save()
+
+binding.pry()
+nil

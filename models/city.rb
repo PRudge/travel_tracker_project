@@ -51,10 +51,10 @@ class City
     return formatted_name
   end
 
-  def country_name
+  def country()
     sql = "SELECT * FROM countries
     WHERE id = $1"
-    values = [@customer_id]
+    values = [@country_id]
     result = SqlRunner.run(sql,values).first
     country = Country.new(result)
     return country
