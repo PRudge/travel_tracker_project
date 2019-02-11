@@ -40,6 +40,15 @@ class Country
     return formatted_name
   end
 
+  def cities()
+    sql = "SELECT * FROM cities
+    WHERE country_id = $1 ORDER BY name"
+    values = [@id]
+    city_data = SqlRunner.run(sql, values)
+    cities = city_data.map {|city| City.new(city) }
+    return cities
+  end
+
   def self.all()
     sql = "SELECT * FROM countries ORDER by name"
     country_data = SqlRunner.run(sql)

@@ -17,16 +17,12 @@ end
 
 get '/cities/:id/view' do #display cities for a country
   @country = Country.find(params['id'])
-  # I tried to create a cities method which would then allow me to just
-  # call @country.cities to return all the cities instances...did not work
-  @cities = Country.cities(params['id'])
   @visit_status = 0
   erb(:"cities/show")
 end
 
 get '/cities/:id/tosee' do #display cities for a country
   @country = Country.find(params['id'])
-  @cities = Country.cities(params['id'])
   @visit_status = 1
   erb(:"cities/show")
 end

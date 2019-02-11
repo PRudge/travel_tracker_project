@@ -10,7 +10,7 @@
     <h3>Cities Still to See</h3>
   <% end %>
 
-  <% @cities.each do |city| %>
+  <% @country.cities.each do |city| %>
     <% if city.visit_status == @visit_status %>
       <ul>
         <li><a href="/sights/<%= city.id %>"><%= city.format_name %></a></li>
